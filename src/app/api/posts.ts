@@ -10,6 +10,12 @@ export async function getPosts() {
 		.then((res) => res.json())
 		.then((data) => data as Post[]);
 }
+export async function getPost(postId: string | number) {
+	await wait(1000);
+	return fetch(`${process.env.API_URL}/posts/${postId}`)
+		.then((res) => res.json())
+		.then((data) => data as Post);
+}
 
 export async function getUserPosts(userId: string | number) {
 	await wait(1000);
